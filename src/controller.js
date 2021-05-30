@@ -3,11 +3,13 @@ const DAO = require("./dao");
 
 module.exports = {
 
-    insert: function (req) {
+    findSingleUser: function (params) {
         try {
-            return new Promise((resolve, reject) => {
-                let msg = DAO.insertOne(req.body);
-                resolve(msg);
+            return new Promise(async (resolve, reject) => {
+                const index = { firstname: params.user };
+                let data = await DAO.findOne(index);
+                delete data._id;
+                resolve(data);
             });
         }
         catch (err) {
@@ -16,16 +18,29 @@ module.exports = {
     },
 
 
-    find: function (req) {
+    findManyUsers: function (params) {
         try {
             return new Promise(async (resolve, reject) => {
-                //let data = DAO.findOne({ user: req.params.user });
-                let data = await DAO.findAll({ firstname: req.params.user });
-                //let data = DAO.listCollections({ user: req.params.user });
-                console.log('data =', data);
-                let parsedData = Utils.parseData(data);
-                console.log('parsedData =', parsedData);
-                resolve(parsedData);
+                let data = await DAO.findAll({ firstname: params.user });
+                for (element of data) {
+                    delete element._id;
+                }
+                resolve(data);
+            });
+        }
+        catch (err) {
+            throw { code_http: 500, message: err.message };
+        }
+    },
+
+
+    insertSingleUser: function (body) {
+        try {
+            return new Promise(async (resolve, reject) => {
+                let msg = await DAO.insertOne(body);
+                resolve(msg);
+            }).catch((err) => {
+                reject(err)
             });
         }
         catch (err) {
