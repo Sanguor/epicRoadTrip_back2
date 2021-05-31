@@ -8,36 +8,6 @@
 		{
 			"name": "single user",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstname\": \"iyad\",\r\n    \"name\": \"callas\",\r\n    \"destination\": \"paris\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/epicroadtrip/users/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"epicroadtrip",
-						"users",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "single user",
-			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -92,6 +62,57 @@
 						"epicroadtrip",
 						"apis",
 						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"iyad\",\r\n    \"name\": \"callas\",\r\n    \"destination\": \"paris\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/epicroadtrip/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"epicroadtrip",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/epicroadtrip/users/iyad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"epicroadtrip",
+						"users",
+						"iyad"
 					]
 				}
 			},

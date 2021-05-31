@@ -5,7 +5,7 @@ const router = express.Router();
 //const swaggerDoc = require ("./../swagger/swagger.json");
 //const cors = require("cors");
 const Controller = require("./src/controller");
-const Config = require("./config/config");
+// const Config = require("./config/config");
 const Utils = require("./src/utils");
 
 const app = express();
@@ -32,6 +32,7 @@ router.get("/users/:user", (req, res) => Controller.findSingleUser(req.params).t
     let json = Utils.getError(err);
     console.log('error', json.message);
     res.status(json.code_http);
+    delete json.code_http;
     res.send(json);
 }));
 
@@ -45,6 +46,7 @@ router.get("/users", (req, res) => Controller.findManyUsers(req.params).then((da
     let json = Utils.getError(err);
     console.log('error', json.message);
     res.status(json.code_http);
+    delete json.code_http;
     res.send(json);
 }));
 
@@ -74,9 +76,26 @@ router.post("/users", (req, res) => Controller.insertSingleUser(req.body).then((
     let json = Utils.getError(err);
     console.log('error', json.message);
     res.status(json.code_http);
+    delete json.code_http;
     res.send(json);
 }));
 
+
+
+// DELETE
+
+// Delete single user
+router.delete("/users/:user", (req, res) => Controller.deleteSingleUser(req.params).then((data) => {
+    console.log('Document deleted');
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(data));
+}).catch((err) => {
+    let json = Utils.getError(err);
+    console.log('error', json.message);
+    res.status(json.code_http);
+    delete json.code_http;
+    res.send(json);
+}));
 
 // ----------------- Ping to check if api alive ---------------------
 router.get("/ping", (req, res) => {
