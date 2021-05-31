@@ -82,7 +82,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/epicroadtrip/apis/google",
+					"raw": "http://localhost:3000/epicroadtrip/apis/test",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -91,7 +91,7 @@
 					"path": [
 						"epicroadtrip",
 						"apis",
-						"google"
+						"test"
 					]
 				}
 			},
