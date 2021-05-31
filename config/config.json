@@ -1,7 +1,23 @@
 {
     "port": "3000",
-    "mongoClientLocalUrl": "http://localhost:27017",
-    "mongoClientUrl": "mongodb+srv://admin:admin@epicroadtrip.toqro.mongodb.net/test",
-    "mongoClientDatabase": "test",
-    "mongoClientCollection": "users"
+    "database": {
+        "mongoClientLocalUrl": "http://localhost:27017",
+        "mongoClientUrl": "mongodb+srv://admin:admin@epicroadtrip.toqro.mongodb.net/test",
+        "mongoClientDatabase": "test",
+        "mongoClientCollection": "users"
+    },
+    "apis": [
+        {
+            "name": "test",
+            "url": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+        },
+        {
+            "name": "google",
+            "url": "url"
+        },
+        {
+            "name": "travel",
+            "url": "url"
+        }
+    ]
 }

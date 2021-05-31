@@ -3,9 +3,9 @@ const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 // const ObjectID = mongo.ObjectID;
 
-const mongoURL = config.mongoClientUrl;
-const mongoDB = config.mongoClientDatabase;
-const mongoCollec = config.mongoClientCollection;
+const mongoURL = config.database.mongoClientUrl;
+const mongoDB = config.database.mongoClientDatabase;
+const mongoCollec = config.database.mongoClientCollection;
 
 
 module.exports = {
@@ -27,28 +27,6 @@ module.exports = {
             reject(error);
         }
     },
-
-
-    /* insertOne: function insertData(value) {
- 
-        try {
-            MongoClient.connect(
-                mongoURL,
-                { useNewUrlParser: true, useUnifiedTopology: true },
-                (err, client) => {
-                    if (err) throw err;
-                    let value = { $set: { user: "paul", date: "YYYY-MM-DD", mood: "enerve" } };
-                    console.log('value =', value);
-                    client
-                        .db(mongoDB).collection(mongoCollec).insert(value, () => {
-                            client.close();
-                        })
-                }
-            );
-        } catch (error) {
-            throw (error);
-        }
-    }, */
 
 
     findOne: function (index) {

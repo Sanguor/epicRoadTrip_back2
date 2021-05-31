@@ -77,6 +77,27 @@
 			"response": []
 		},
 		{
+			"name": "call api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/epicroadtrip/apis/google",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"epicroadtrip",
+						"apis",
+						"google"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "ping",
 			"request": {
 				"method": "GET",

@@ -17,7 +17,7 @@ let port = process.env.PORT || 3000;
 
 app.set("port", port);
 
-//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.use('/epicroadtrip', router);
 
@@ -49,6 +49,20 @@ router.get("/users", (req, res) => Controller.findManyUsers(req.params).then((da
 }));
 
 
+//
+router.get("/apis/:api_name", (req, res) => Controller.callApi(req.params).then((data) => {
+    console.log('Informations found with success');
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(data));
+}).catch((err) => {
+    let json = Utils.getError(err);
+    console.log('error', json.message);
+    res.status(json.code_http);
+    delete json.code_http;
+    res.send(json);
+}));
+
+
 //POST
 
 // create single user
@@ -69,7 +83,7 @@ router.get("/ping", (req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     console.log('I\'m the final-project-api and i\' still alive !');
     res.end(JSON.stringify({ message: 'I\'m the epic-road-trip-api and i\'m still alive !' }));
-})
+});
 
 app.listen(app.get("port"), () => {
     console.log('App is now running on port ' + app.get("port"));
