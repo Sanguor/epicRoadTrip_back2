@@ -5,6 +5,7 @@ const router = express.Router();
 //const swaggerDoc = require ("./../swagger/swagger.json");
 //const cors = require("cors");
 const Controller = require("./src/controller");
+const Travel_controller = require("./src/travel_controller");
 // const Config = require("./config/config");
 const Utils = require("./src/utils");
 
@@ -96,6 +97,18 @@ router.delete("/users/:user", (req, res) => Controller.deleteSingleUser(req.para
     delete json.code_http;
     res.send(json);
 }));
+
+/// ---------------- Travel routes ----------------------------------
+router.get("/pois", (req, res) => {
+    Travel_controller.searchPointsOfInterest(req.body)
+    .then((data) => {
+        console.log(data);
+        res.send(Utils.getNamesAndCoordinates(data.result.data));        
+    })
+    .catch((err) => {
+        res.send(err);
+    })
+});
 
 // ----------------- Ping to check if api alive ---------------------
 router.get("/ping", (req, res) => {
