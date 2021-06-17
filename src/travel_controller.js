@@ -27,5 +27,49 @@ module.exports = {
         } catch (err) {
             throw { code_http: 500, message: err.message };
         }
+    },
+
+    searchToursAndActivities: function(params) {
+        try {
+            return new Promise(async (resolve, reject) => {
+                Services.callGeocoder(params.location) // Call to the Google Geocoder API to retrieve the coordinates of the place entered
+                .then((res) => {
+                    // Call Amadeus API to get the Points of interests near the place entered
+                    let data = amadeus_travel.amadeus.shopping.activities.get({
+                        latitude: res.latitude,
+                        longitude: res.longitude,
+                    });
+                    resolve (data);
+                })
+                .catch ((err) => {
+                    console.log(err);
+                    reject (err);
+                });
+            });
+        } catch (err) {
+            throw { code_http: 500, message: err.message };
+        }
+    },
+
+    LocationSafety: function(params) {
+        try {
+            return new Promise(async (resolve, reject) => {
+                Services.callGeocoder(params.location) // Call to the Google Geocoder API to retrieve the coordinates of the place entered
+                .then((res) => {
+                    // Call Amadeus API to get the Points of interests near the place entered
+                    let data = amadeus_travel.amadeus.safety.safetyRatedLocations.get({
+                        latitude: res.latitude,
+                        longitude: res.longitude,
+                    });
+                    resolve (data);
+                })
+                .catch ((err) => {
+                    console.log(err);
+                    reject (err);
+                });
+            });
+        } catch (err) {
+            throw { code_http: 500, message: err.message };
+        }
     }
 }
