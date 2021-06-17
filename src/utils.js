@@ -20,5 +20,18 @@ module.exports = {
             }
         }
         return result;
+    },
+
+    getSafetyScores: function (tab){
+        let result = [];
+        let i = 0;
+        for(i = 0; i < tab.length; i++){
+            result[i] = {
+                nom: tab[i].name,
+                coordinates: tab[i].geoCode,
+                safety_score: tab[i].safetyScores
+            }
+        }
+        return result;
     }
 }
