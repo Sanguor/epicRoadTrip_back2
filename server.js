@@ -110,6 +110,27 @@ router.get("/pois", (req, res) => {
     })
 });
 
+router.get("/toursandactivities", (req, res) => {
+    Travel_controller.searchToursAndActivities(req.body)
+    .then((data) => {
+        console.log(data);
+        res.send(Utils.getNamesAndCoordinates(data.result.data));        
+    })
+    .catch((err) => {
+        res.send(err);
+    })
+});
+
+router.get("/locationsafety", (req, res) => {
+    Travel_controller.LocationSafety(req.body)
+    .then((data) => {
+        console.log(data);
+        res.send(Utils.getSafetyScores(data.result.data));        
+    })
+    .catch((err) => {
+        res.send(err);
+    })
+});
 // ----------------- Ping to check if api alive ---------------------
 router.get("/ping", (req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
