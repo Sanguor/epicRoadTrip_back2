@@ -22,6 +22,38 @@ module.exports = {
         return result;
     },
 
+    getRestaurants: function (tab){
+        let result = [];
+        let i = 0;
+        let y = 0;
+        for(i = 0; i < tab.length; i++){
+            if(tab[i].category == "RESTAURANT") {
+                result[y] = {
+                    nom: tab[i].name,
+                    coordinates: tab[i].geoCode
+                }
+                y++;
+            }
+        }
+        return result;
+    },
+
+    getSights: function (tab){
+        let result = [];
+        let i = 0;
+        let y = 0;
+        for(i = 0; i < tab.length; i++){
+            if(tab[i].category == "SIGHTS") {
+                result[y] = {
+                    nom: tab[i].name,
+                    coordinates: tab[i].geoCode
+                }
+                y++;
+            }
+        }
+        return result;
+    },
+
     getSafetyScores: function (tab){
         let result = [];
         let i = 0;
