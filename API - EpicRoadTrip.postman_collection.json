@@ -139,7 +139,7 @@
 			"response": []
 		},
 		{
-			"name": "Points of Interest",
+			"name": "Points Of Interest",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -229,6 +229,70 @@
 					"path": [
 						"epicroadtrip",
 						"locationsafety"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurants",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"Paris\",\r\n    \"radius\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/epicroadtrip/restaurants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"epicroadtrip",
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sights",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"Paris\",\r\n    \"radius\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/epicroadtrip/sights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"epicroadtrip",
+						"sights"
 					]
 				}
 			},
