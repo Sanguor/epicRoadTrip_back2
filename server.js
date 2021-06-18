@@ -103,10 +103,32 @@ router.get("/pois", (req, res) => {
     Travel_controller.searchPointsOfInterest(req.body)
     .then((data) => {
         console.log(data);
-        res.send(Utils.getNamesAndCoordinates(data.result.data));        
+        res.status(200).send(Utils.getNamesAndCoordinates(data.result.data));        
     })
     .catch((err) => {
-        res.send(err);
+        res.status(404).send(err);
+    })
+});
+
+router.get("/restaurants", (req, res) => {
+    Travel_controller.searchPointsOfInterest(req.body)
+    .then((data) => {
+        console.log(data);
+        res.status(200).send(Utils.getRestaurants(data.result.data));        
+    })
+    .catch((err) => {
+        res.status(404).send(err);
+    })
+});
+
+router.get("/sights", (req, res) => {
+    Travel_controller.searchPointsOfInterest(req.body)
+    .then((data) => {
+        console.log(data);
+        res.status(200).send(Utils.getSights(data.result.data));        
+    })
+    .catch((err) => {
+        res.status(404).send(err);
     })
 });
 
@@ -114,10 +136,10 @@ router.get("/toursandactivities", (req, res) => {
     Travel_controller.searchToursAndActivities(req.body)
     .then((data) => {
         console.log(data);
-        res.send(Utils.getNamesAndCoordinates(data.result.data));        
+        res.status(200).send(Utils.getNamesAndCoordinates(data.result.data));        
     })
     .catch((err) => {
-        res.send(err);
+        res.status(404).send(err);
     })
 });
 
@@ -125,10 +147,10 @@ router.get("/locationsafety", (req, res) => {
     Travel_controller.LocationSafety(req.body)
     .then((data) => {
         console.log(data);
-        res.send(Utils.getSafetyScores(data.result.data));        
+        res.status(200).send(Utils.getSafetyScores(data.result.data));        
     })
     .catch((err) => {
-        res.send(err);
+        res.status(404).send(err);
     })
 });
 // ----------------- Ping to check if api alive ---------------------
