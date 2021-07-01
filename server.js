@@ -1,5 +1,4 @@
 const express = require("express");
-
 const router = express.Router();
 //const swaggerUi = require ("swagger-ui-express");
 //const swaggerDoc = require ("./../swagger/swagger.json");
@@ -19,7 +18,6 @@ let port = process.env.PORT || 3000;
 app.set("port", port);
 
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
-
 app.use('/epicroadtrip', router);
 
 // GET
