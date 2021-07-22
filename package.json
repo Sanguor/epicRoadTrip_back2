@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "start-nodemon": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jasmine init": "node_modules/.bin/jasmine init",
+    "jasmine": "node_modules/.bin/jasmine"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +18,9 @@
     "amadeus": "^5.7.0",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "jasmine": "^3.7.0",
     "mongodb": "^3.5.9",
     "node-geocoder": "^3.27.0",
     "nodemon": "^2.0.4",
