@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 //const swaggerUi = require ("swagger-ui-express");
 //const swaggerDoc = require ("./../swagger/swagger.json");
-//const cors = require("cors");
+const cors = require("cors");
 const Controller = require("./src/controller");
 const Travel_controller = require("./src/travel_controller");
 // const Config = require("./config/config");
@@ -12,7 +12,7 @@ const Utils = require("./src/utils");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
 
 let port = process.env.PORT || 3000;
 

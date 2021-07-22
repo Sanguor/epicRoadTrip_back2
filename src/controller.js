@@ -8,6 +8,7 @@ module.exports = {
     findSingleUser: function (params) {
         try {
             return new Promise(async (resolve, reject) => {
+                /* console.log('params = ', params); */
                 const index = { firstname: params.user };
                 let data = await DAO.findOne(index).catch((error) => { reject(error) });
                 if (data != undefined) {

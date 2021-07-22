@@ -8,6 +8,7 @@ module.exports = {
 
     searchPointsOfInterest: function(params) {
         try {
+            console.log('params =', params);
             return new Promise(async (resolve, reject) => {
                 Services.callGeocoder(params.address) // Call to the Google Geocoder API to retrieve the coordinates of the place entered
                 .then((res) => {
